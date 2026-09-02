@@ -1,0 +1,31 @@
+services:
+  # 1. Django REST Framework Backend Service
+  - type: web
+    name: mhada-gis-backend
+    runtime: python
+    buildCommand: "cd backend && chmod +x build.sh && ./build.sh"
+    startCommand: "cd backend && gunicorn backend.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        sync: false # Connect your Neon PostgreSQL connection string here
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "*"
+      - key: PYTHON_VERSION
+        value: "3.11.5"
+
+  # 2. React + Vite Frontend Static Site
+  - type: web
+    name: mhada-gis-frontend
+    runtime: static
+    buildCommand: "cd frontend && npm install && npm run build"
+    publishPath: "frontend/dist"
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: mhada-gis-backend
+          property: host
