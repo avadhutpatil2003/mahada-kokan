@@ -5,12 +5,13 @@ from datetime import date, timedelta
 def populate():
     # Connection details
     conn = psycopg2.connect(
-        "postgresql://neondb_owner:npg_xh7b9uKDPcFC@ep-still-sky-ae8lh028-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require"
+        host="localhost",
+        database="mhada",
+        user="postgres",
+        password="Pass",
+        port=5432
     )
     cursor = conn.cursor()
-    print("Enabling PostGIS extension...")
-    cursor.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
-    conn.commit()
 
     # Drop old table to clean schema differences
     print("Dropping old table if exists...")
