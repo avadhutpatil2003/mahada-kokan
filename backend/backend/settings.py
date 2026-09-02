@@ -66,7 +66,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Uses env var DATABASE_URL with a local fallback for development
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://postgres:Pass@localhost:5432/mhada')
+        default=os.environ.get('DATABASE_URL', 'postgresql://neondb_owner:npg_xh7b9uKDPcFC@ep-restless-lake-aeiv3cuj-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require')
     )
 }
 
