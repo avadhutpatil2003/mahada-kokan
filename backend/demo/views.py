@@ -2,6 +2,7 @@ from django.db import connection
 from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
+# pyrefly: ignore [missing-import]
 from .serializers import MhadaPlotSerializer
 
 class MhadaPlotViewSet(viewsets.ViewSet):

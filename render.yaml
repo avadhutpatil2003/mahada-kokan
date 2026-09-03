@@ -7,7 +7,7 @@ services:
     startCommand: "cd backend && gunicorn backend.wsgi:application"
     envVars:
       - key: DATABASE_URL
-        sync: false # Connect your Neon PostgreSQL connection string here
+        value: "postgresql://neondb_owner:npg_xh7b9uKDPcFC@ep-restless-lake-aeiv3cuj-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
       - key: SECRET_KEY
         generateValue: true
       - key: DEBUG
