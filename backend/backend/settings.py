@@ -107,7 +107,13 @@ STORAGES = {
     },
 }
 
-# CORS Configuration
+# CORS & CSRF Configuration
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.railway.app',
+    'https://*.up.railway.app',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
