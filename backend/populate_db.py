@@ -1,16 +1,16 @@
+import os
 import psycopg2
 import random
 from datetime import date, timedelta
 
+NEON_URL = os.environ.get(
+    'DATABASE_URL',
+    'postgresql://neondb_owner:npg_xh7b9uKDPcFC@ep-restless-lake-aeiv3cuj-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require'
+)
+
 def populate():
     # Connection details
-    conn = psycopg2.connect(
-        host="localhost",
-        database="mhada",
-        user="postgres",
-        password="Pass",
-        port=5432
-    )
+    conn = psycopg2.connect(NEON_URL)
     cursor = conn.cursor()
 
     # Drop old table to clean schema differences

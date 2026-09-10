@@ -63,10 +63,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database Connection
-# Uses env var DATABASE_URL with a local fallback for development
+# Uses env var DATABASE_URL with Neon PostgreSQL fallback
+NEON_DATABASE_URL = 'postgresql://neondb_owner:npg_xh7b9uKDPcFC@ep-restless-lake-aeiv3cuj-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require'
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', 'postgres://postgres:Pass@localhost:5432/mhada')
+        default=os.environ.get('DATABASE_URL', NEON_DATABASE_URL),
+        conn_max_age=600,
+        ssl_require=True
     )
 }
 

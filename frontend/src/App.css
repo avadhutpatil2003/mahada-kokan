@@ -705,6 +705,402 @@ html, body, #root {
 }
 .action-btn:hover { background: #4f46e5; }
 
+.detail-bottom-actions {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.detail-bottom-actions .plot-download-container {
+  width: 100%;
+}
+
+.detail-bottom-actions .download-info-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 10px 16px;
+  font-size: 0.84rem;
+}
+
+.detail-bottom-actions .download-dropdown-menu {
+  width: 100%;
+  bottom: calc(100% + 6px);
+  top: auto;
+}
+
+.detail-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* -------------------------------------------------------
+ * Plot Download Info Dropdown
+ * ------------------------------------------------------- */
+.plot-download-container {
+  position: relative;
+  display: inline-block;
+}
+
+.download-btn-group {
+  position: relative;
+}
+
+.download-info-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 7px;
+  padding: 6px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.download-info-btn:hover {
+  background: linear-gradient(135deg, #162c4a 0%, #1d4ed8 100%);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+.download-info-btn:active {
+  transform: translateY(0);
+}
+
+.download-info-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.btn-spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+.text-success {
+  color: #4ade80;
+}
+
+/* Download Dropdown Menu */
+.download-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+  z-index: 1050;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  animation: dropdownFadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.download-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.15s ease;
+  width: 100%;
+}
+
+.download-menu-item:hover {
+  background-color: #f1f5f9;
+}
+
+.menu-item-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pdf-icon {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.img-icon {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.menu-item-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.menu-desc {
+  font-size: 0.65rem;
+  color: #64748b;
+}
+
+/* -------------------------------------------------------
+ * Official MHADA Plot Certificate Layout (Export Template)
+ * ------------------------------------------------------- */
+.official-plot-certificate {
+  width: 800px;
+  padding: 32px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  border: 2px solid #cbd5e1;
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.cert-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cert-logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+.cert-header-left h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #1e3a5f;
+  margin-bottom: 2px;
+}
+
+.cert-header-left h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 4px;
+}
+
+.cert-subtitle {
+  font-size: 0.75rem;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.cert-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.cert-badge {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1.5px solid;
+}
+
+.cert-date {
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cert-divider {
+  height: 2px;
+  background: linear-gradient(90deg, #1e3a5f 0%, #2563eb 50%, #cbd5e1 100%);
+  margin: 16px 0 20px;
+}
+
+.cert-highlight-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+}
+
+.cert-hl-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cert-hl-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cert-hl-val {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.cert-section {
+  margin-bottom: 18px;
+}
+
+.cert-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1e3a5f;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #e2e8f0;
+  margin-bottom: 8px;
+}
+
+.cert-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+}
+
+.cert-table th, .cert-table td {
+  padding: 8px 10px;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+.cert-table thead th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #334155;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+}
+
+.cert-table .tbl-label {
+  width: 22%;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+}
+
+.cert-table .tbl-val {
+  width: 28%;
+  color: #0f172a;
+  font-weight: 500;
+}
+
+.cert-table .tbl-val.highlight {
+  color: #15803d;
+  font-weight: 700;
+}
+
+.cert-table .highlight-area {
+  font-weight: 800;
+  color: #1e3a5f;
+  background: #eef2ff;
+}
+
+.cert-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 24px;
+  padding-top: 14px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.cert-footer-left p {
+  font-size: 0.68rem;
+  color: #64748b;
+  margin-bottom: 2px;
+}
+
+.cert-timestamp {
+  font-weight: 600;
+  color: #475569;
+}
+
+.cert-stamp-box {
+  border: 2px dashed #94a3b8;
+  border-radius: 6px;
+  padding: 6px 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-stamp-box span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #1e3a5f;
+}
+
+.cert-stamp-box small {
+  font-size: 0.55rem;
+  color: #059669;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
 /* -------------------------------------------------------
  * Responsive
  * ------------------------------------------------------- */

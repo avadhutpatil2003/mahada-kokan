@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { fetchPlots, fetchStats, fetchMetadata } from './api';
 import MapView, { getLandUseColor } from './MapView';
+import PlotReportCard from './PlotReportCard';
 import './App.css';
 
 export default function App() {
@@ -441,9 +442,12 @@ export default function App() {
             <div className="plot-detail-overlay glass">
               <div className="detail-header">
                 <h3>Plot Details</h3>
-                <button className="close-detail-btn" onClick={() => setSelectedPlot(null)}>
-                  <X size={16} />
-                </button>
+                <div className="detail-header-actions">
+                  <PlotReportCard plot={selectedPlot} />
+                  <button className="close-detail-btn" onClick={() => setSelectedPlot(null)} title="Close">
+                    <X size={16} />
+                  </button>
+                </div>
               </div>
 
               <div className="detail-body">
@@ -569,6 +573,11 @@ export default function App() {
                       </span>
                     </div>
                   </div>
+                </div>
+
+                {/* Bottom Download Actions */}
+                <div className="detail-bottom-actions">
+                  <PlotReportCard plot={selectedPlot} />
                 </div>
               </div>
             </div>
